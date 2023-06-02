@@ -40,12 +40,18 @@ public class MainWindow extends JFrame {
             AddProductDialog dialog = new AddProductDialog(this);
             dialog.setVisible(true);
         });
-        DeleteArrivalButton = new JButton("Удалить товар");
+        DeleteProductButton = new JButton("Удалить товар");
+        DeleteProductButton.addActionListener(e -> {
+            DeleteProductDialog dialog = new DeleteProductDialog(this);
+            dialog.setVisible(true);
+        });
+
+        /*DeleteArrivalButton = new JButton("Удалить товар");
         DeleteArrivalButton.addActionListener(e -> {
             DeleteProductDialog dialog = new DeleteProductDialog(this);
             dialog.setVisible(true);
         });
-        /*UpdateProductButton = new JButton("Обновить товар");
+        UpdateProductButton = new JButton("Обновить товар");
         UpdateProductButton.addActionListener(e -> {
             UpdateProductDialog dialog = new UpdateProductDialog(this);
             dialog.setVisible(true);
@@ -70,11 +76,12 @@ public class MainWindow extends JFrame {
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         add(addProductButton);
+        add(DeleteProductButton);
         add(addModelButton);
         add(addSupplyButton);
         //TODO:fix errors
-        /*add(DeleteProductButton);
-        add(DeleteModelButton);
+        //add(DeleteProductButton);
+        /*add(DeleteModelButton);
         add(DeleteArrivalButton);
         add(UpdateProductButton);
         add(UpdateModelButton);
