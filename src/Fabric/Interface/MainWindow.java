@@ -127,8 +127,6 @@ public class MainWindow extends JFrame {
             UpdateModelDialog dialog = new UpdateModelDialog(this);
             dialog.setVisible(true);
         });
-
-        //------------------------------ARRIVAL (SUPPLY)---------------------------------------
         GetModelButton = new JButton("Получить модель");
         GetModelButton.addActionListener(e -> {
             GetModelDialog dialog = new GetModelDialog(this);
@@ -193,7 +191,6 @@ public class MainWindow extends JFrame {
         modelButtonPanel.add(addModelButton);
         modelButtonPanel.add(DeleteModelButton);
         modelButtonPanel.add(UpdateModelButton);
-        modelButtonPanel.add(GetModelButton);
         modelButtonPanel.add(GetModelButton);
 
         JPanel supplyButtonPanel = new JPanel(new FlowLayout());
