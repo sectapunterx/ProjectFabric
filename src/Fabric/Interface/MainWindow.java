@@ -1,5 +1,6 @@
 package Fabric.Interface;
 
+import Fabric.Dao.ProductDao;
 import Fabric.Interface.Arrival.AddSupplyDialog;
 import Fabric.Interface.Arrival.DeleteArrivalDialog;
 import Fabric.Interface.Arrival.GetArrivalDialog;
@@ -12,12 +13,17 @@ import Fabric.Interface.Product.AddProductDialog;
 import Fabric.Interface.Product.DeleteProductDialog;
 import Fabric.Interface.Product.GetProductDialog;
 import Fabric.Interface.Product.UpdateProductDialog;
+import Fabric.Product;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.List;
 
 public class MainWindow extends JFrame {
     private JButton addProductButton;
+    private JButton allProductButton;
     private JButton addModelButton;
     private JButton addSupplyButton;
     private JButton DeleteProductButton;
@@ -35,6 +41,28 @@ public class MainWindow extends JFrame {
         setSize(500, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  // Располагаем окно по центру экрана
+
+        //------------------------------PRODUCT---------------------------------------
+
+        allProductButton = new JButton("Получить все товары");
+        allProductButton.addActionListener(e -> {
+            ProductDao productDao = new ProductDao();
+            try {
+                List<Product> productList = productDao.getAllProducts();
+
+                // Создаем модель таблицы и добавляем ее в JTable
+                DefaultTableModel model = getTableModel(productList);
+                JTable table = new JTable(model);
+
+                // Создаем JScrollPane и добавляем в него JTable
+                JScrollPane scrollPane = new JScrollPane(table);
+
+                // Отображаем JScrollPane в диалоговом окне
+                JOptionPane.showMessageDialog(this, scrollPane);
+            } catch (SQLException ex) {
+                // TODO: Обработка ошибки работы с базой данных
+            }
+        });
 
         addProductButton = new JButton("Добавить товар");
         addProductButton.addActionListener(e -> {
@@ -57,6 +85,8 @@ public class MainWindow extends JFrame {
             dialog.setVisible(true);
         });
 
+        //------------------------------MODEL---------------------------------------
+
         addModelButton = new JButton("Добавить модель");
         addModelButton.addActionListener(e -> {
             AddModelDialog dialog = new AddModelDialog(this); // AddModelDialog предполагается реализованным аналогично AddProductDialog
@@ -70,6 +100,7 @@ public class MainWindow extends JFrame {
         });
 
         JPanel productButtonPanel = new JPanel(new FlowLayout());
+        productButtonPanel.add(allProductButton);
         productButtonPanel.add(addProductButton);
         productButtonPanel.add(DeleteProductButton);
         productButtonPanel.add(UpdateProductButton);
@@ -99,5 +130,21 @@ public class MainWindow extends JFrame {
             MainWindow window = new MainWindow();
             window.setVisible(true);
         });
+    }
+
+    public DefaultTableModel getTableModel(List<Product> productList) {
+        String[] columnNames = {"Код товара", "Наименование товара"};
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+
+        for (Product product : productList) {
+            Object[] o = new Object[2];
+            o[0] = product.getCode();
+            o[1] = product.getName();
+            model.addRow(o);
+        }
+
+        return model;
     }
 }

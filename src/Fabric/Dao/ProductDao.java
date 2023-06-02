@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDao {
     private Connection connection;
@@ -16,20 +17,21 @@ public class ProductDao {
         connection = DatabaseConnection.getConnection();
     }
 
-    public ArrayList<Product> getAllProducts() throws SQLException {
+    public List<Product> getAllProducts() throws SQLException {
         String query = "SELECT * FROM products";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
+
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        ArrayList<Product> products = new ArrayList<>();
+        List<Product> productList = new ArrayList<>();
+
         while (resultSet.next()) {
             int code = resultSet.getInt("code");
             String name = resultSet.getString("name");
-
-            products.add(new Product(code, name));
+            productList.add(new Product(code, name));
         }
 
-        return products;
+        return productList;
     }
 
     public void addProduct(Product product) {
