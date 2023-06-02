@@ -63,4 +63,12 @@ public class Model {
     public void removeArrival(Arrival arrival) {
         arrivals.remove(arrival);
     }
+
+    @Override
+    public String toString() {
+        return "Model code: " + codeModel + "\n" +
+                "Model name: " + nameModel + "\n" +
+                "Product code: " + codeProduct + "\n" +
+                "Price: " + priceModel;
+    }
 }

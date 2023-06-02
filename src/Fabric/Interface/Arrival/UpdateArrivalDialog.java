@@ -14,9 +14,16 @@ public class UpdateArrivalDialog extends JDialog {
     private JTextField quantityReceiptField;
     private JTextField acceptReceiptField;
 
+
+
     public UpdateArrivalDialog(JFrame parent) {
         super(parent, "Обновить прибытие", true);
         // TODO: Добавьте ваш код здесь для инициализации текстовых полей
+        arrivalCodeField = new JTextField(20);
+        modelCodeField = new JTextField(20);
+        arrivalDateField = new JTextField(20);
+        quantityReceiptField = new JTextField(20);
+        acceptReceiptField = new JTextField(20);
 
         JButton okButton = new JButton("OK");
         okButton.addActionListener(e -> {
@@ -30,14 +37,33 @@ public class UpdateArrivalDialog extends JDialog {
             ArrivalDao arrivalDao = new ArrivalDao();
             try {
                 arrivalDao.updateArrival(arrival);
-                // TODO: Добавьте ваш код здесь для уведомления пользователя об успешном обновлении
+                JOptionPane.showMessageDialog(this, "Arrival code: " + arrivalCode + " -> Arrival code: " + arrival.getCodeReceipt()
+                        + "\nModel code: " + modelCode + " -> Model code: " + arrival.getCodeModel()
+                        + "\nArrival date: " + arrivalDate + " -> Arrival date: " + arrival.getDateReceipt()
+                        + "\nQuantity receipt: " + quantityReceipt + " -> Quantity receipt: " + arrival.getQuantityReceipt()
+                        + "\nAccept receipt: " + acceptReceipt + " -> Accept receipt: " + arrival.getAcceptReceipt());
             } catch (SQLException ex) {
-                // TODO: Добавьте ваш код здесь для обработки ошибки обновления
+                JOptionPane.showMessageDialog(this, "Ошибка обновления прибытия", "Ошибка", JOptionPane.ERROR_MESSAGE);
             }
 
             dispose();
         });
 
-        // TODO: Добавьте ваш код здесь для создания и настройки макета диалогового окна
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        add(new JLabel("Код прибытия:"));
+        add(arrivalCodeField);
+        add(new JLabel("Код модели:"));
+        add(modelCodeField);
+        add(new JLabel("Дата прибытия:"));
+        add(arrivalDateField);
+        add(new JLabel("Количество поставки:"));
+        add(quantityReceiptField);
+        add(new JLabel("Принято:"));
+        add(acceptReceiptField);
+        add(okButton);
+
+        setSize(300, 200); // Задаём размер окна
+        setLocationRelativeTo(parent); // Располагаем окно по центру относительно родительского
+        pack();
     }
 }

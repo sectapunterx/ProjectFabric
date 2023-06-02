@@ -19,11 +19,21 @@ public class DeleteArrivalDialog extends JDialog {
             ArrivalDao arrivalDao = new ArrivalDao();
             try {
                 arrivalDao.deleteArrival(arrivalCode);
+                JOptionPane.showMessageDialog(DeleteArrivalDialog.this, "Поступление удалено", "Поступление удалено", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(DeleteArrivalDialog.this, ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
             }
             dispose();
         });
+
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+        add(new JLabel("Код поступления:"));
+        add(arrivalCodeField);
+        add(okButton);
+
+        setSize(300, 200); // Задаём размер окна
+        setLocationRelativeTo(parent); // Располагаем окно по центру относительно родительского
+        pack();
     }
 
 }

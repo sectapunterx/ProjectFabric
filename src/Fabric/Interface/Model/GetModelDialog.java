@@ -27,5 +27,14 @@ public class GetModelDialog extends JDialog{
             }
             dispose();
         });
+
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+        add(new JLabel("Код модели:"));
+        add(modelCodeField);
+        add(okButton);
+
+        setSize(300, 200);
+        setLocationRelativeTo(parent);
+        pack();
     }
 }

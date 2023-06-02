@@ -24,8 +24,8 @@ public class GetProductDialog extends JDialog {
                 // TODO: Добавьте ваш код здесь для отображения информации о полученном товаре
             } catch (SQLException ex) {
                 // TODO: Добавьте ваш код здесь для обработки ошибки получения товара
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
             }
-
             dispose();
         });
 

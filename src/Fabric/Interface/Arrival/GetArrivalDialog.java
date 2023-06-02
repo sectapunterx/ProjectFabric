@@ -27,5 +27,14 @@ public class GetArrivalDialog extends JDialog {
             }
             dispose();
         });
+
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+        add(new JLabel("Код поступления:"));
+        add(arrivalCodeField);
+        add(okButton);
+
+        setSize(300, 200);
+        setLocationRelativeTo(parent);
+        pack();
     }
 }

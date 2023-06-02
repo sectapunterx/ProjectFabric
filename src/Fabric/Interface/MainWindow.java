@@ -127,8 +127,19 @@ public class MainWindow extends JFrame {
             UpdateModelDialog dialog = new UpdateModelDialog(this);
             dialog.setVisible(true);
         });
+<<<<<<< Updated upstream
 
         //------------------------------ARRIVAL (SUPPLY)---------------------------------------
+=======
+        GetModelButton = new JButton("Получить модель");
+        GetModelButton.addActionListener(e -> {
+            GetModelDialog dialog = new GetModelDialog(this);
+            dialog.setVisible(true);
+        });
+
+        //------------------------------ARRIVAL (SUPPLY)---------------------------------------
+
+>>>>>>> Stashed changes
         allArrivalButton = new JButton("Получить все поставки");
         allArrivalButton.addActionListener(e -> {
             ArrivalDao arrivalDao = new ArrivalDao();
@@ -154,6 +165,23 @@ public class MainWindow extends JFrame {
             AddSupplyDialog dialog = new AddSupplyDialog(this); // AddSupplyDialog предполагается реализованным аналогично AddProductDialog
             dialog.setVisible(true);
         });
+        DeleteArrivalButton = new JButton("Удалить поставку");
+        DeleteArrivalButton.addActionListener(e -> {
+            DeleteArrivalDialog dialog = new DeleteArrivalDialog(this);
+            dialog.setVisible(true);
+        });
+        UpdateArrivalButton = new JButton("Обновить поставку");
+        UpdateArrivalButton.addActionListener(e -> {
+            UpdateArrivalDialog dialog = new UpdateArrivalDialog(this);
+            dialog.setVisible(true);
+        });
+        GetArrivalButton = new JButton("Получить поставку");
+        GetArrivalButton.addActionListener(e -> {
+            GetArrivalDialog dialog = new GetArrivalDialog(this);
+            dialog.setVisible(true);
+        });
+
+        //-------------------------------ADD BUTTONS--------------------------
 
         //ADD BUTTONS
         JPanel productButtonPanel = new JPanel(new FlowLayout());
@@ -168,15 +196,20 @@ public class MainWindow extends JFrame {
         modelButtonPanel.add(addModelButton);
         modelButtonPanel.add(DeleteModelButton);
         modelButtonPanel.add(UpdateModelButton);
+<<<<<<< Updated upstream
         //modelButtonPanel.add(GetModelButton);
+=======
+        modelButtonPanel.add(GetModelButton);
+
+>>>>>>> Stashed changes
 
 
         JPanel supplyButtonPanel = new JPanel(new FlowLayout());
         supplyButtonPanel.add(allArrivalButton);
         supplyButtonPanel.add(addSupplyButton);
-        //supplyButtonPanel.add(DeleteArrivalButton);
-        //supplyButtonPanel.add(UpdateArrivalButton);
-        //supplyButtonPanel.add(GetArrivalButton);
+        supplyButtonPanel.add(DeleteArrivalButton);
+        supplyButtonPanel.add(UpdateArrivalButton);
+        supplyButtonPanel.add(GetArrivalButton);
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         add(productButtonPanel);
