@@ -1,12 +1,9 @@
 package Fabric.Interface;
 
-<<<<<<< Updated upstream
-=======
 import Fabric.Arrival;
 import Fabric.Dao.ArrivalDao;
 import Fabric.Dao.ModelDao;
 import Fabric.Dao.ProductDao;
->>>>>>> Stashed changes
 import Fabric.Interface.Arrival.AddSupplyDialog;
 import Fabric.Interface.Arrival.DeleteArrivalDialog;
 import Fabric.Interface.Arrival.GetArrivalDialog;
@@ -19,22 +16,20 @@ import Fabric.Interface.Product.AddProductDialog;
 import Fabric.Interface.Product.DeleteProductDialog;
 import Fabric.Interface.Product.GetProductDialog;
 import Fabric.Interface.Product.UpdateProductDialog;
-<<<<<<< Updated upstream
-=======
 import Fabric.Model;
 import Fabric.Product;
->>>>>>> Stashed changes
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.sql.SQLException;
+import java.util.List;
 
 public class MainWindow extends JFrame {
     private JButton addProductButton;
-<<<<<<< Updated upstream
-=======
     private JButton allProductButton;
     private JButton allModelButton;
     private JButton allArrivalButton;
->>>>>>> Stashed changes
     private JButton addModelButton;
     private JButton addSupplyButton;
     private JButton DeleteProductButton;
@@ -53,8 +48,6 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  // Располагаем окно по центру экрана
 
-<<<<<<< Updated upstream
-=======
         //------------------------------PRODUCT---------------------------------------
 
         allProductButton = new JButton("Получить все товары");
@@ -77,18 +70,17 @@ public class MainWindow extends JFrame {
             }
         });
 
->>>>>>> Stashed changes
         addProductButton = new JButton("Добавить товар");
         addProductButton.addActionListener(e -> {
             AddProductDialog dialog = new AddProductDialog(this);
             dialog.setVisible(true);
         });
-        DeleteArrivalButton = new JButton("Удалить товар");
-        DeleteArrivalButton.addActionListener(e -> {
+        DeleteProductButton = new JButton("Удалить товар");
+        DeleteProductButton.addActionListener(e -> {
             DeleteProductDialog dialog = new DeleteProductDialog(this);
             dialog.setVisible(true);
         });
-        /*UpdateProductButton = new JButton("Обновить товар");
+        UpdateProductButton = new JButton("Обновить товар");
         UpdateProductButton.addActionListener(e -> {
             UpdateProductDialog dialog = new UpdateProductDialog(this);
             dialog.setVisible(true);
@@ -97,9 +89,6 @@ public class MainWindow extends JFrame {
         GetProductButton.addActionListener(e -> {
             GetProductDialog dialog = new GetProductDialog(this);
             dialog.setVisible(true);
-<<<<<<< Updated upstream
-        });*/
-=======
         });
 
         //------------------------------MODEL---------------------------------------
@@ -122,7 +111,6 @@ public class MainWindow extends JFrame {
 
             }
         });
->>>>>>> Stashed changes
 
         addModelButton = new JButton("Добавить модель");
         addModelButton.addActionListener(e -> {
@@ -167,8 +155,6 @@ public class MainWindow extends JFrame {
             dialog.setVisible(true);
         });
 
-<<<<<<< Updated upstream
-=======
         //ADD BUTTONS
         JPanel productButtonPanel = new JPanel(new FlowLayout());
         productButtonPanel.add(allProductButton);
@@ -192,23 +178,12 @@ public class MainWindow extends JFrame {
         //supplyButtonPanel.add(UpdateArrivalButton);
         //supplyButtonPanel.add(GetArrivalButton);
 
->>>>>>> Stashed changes
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(addProductButton);
-        add(addModelButton);
-        add(addSupplyButton);
-        //TODO:fix errors
-        /*add(DeleteProductButton);
-        add(DeleteModelButton);
-        add(DeleteArrivalButton);
-        add(UpdateProductButton);
-        add(UpdateModelButton);
-        add(UpdateArrivalButton);
-        add(GetProductButton);
-        add(GetModelButton);
-        add(GetArrivalButton);*/
-
+        add(productButtonPanel);
+        add(modelButtonPanel);
+        add(supplyButtonPanel);
     }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -216,8 +191,6 @@ public class MainWindow extends JFrame {
             window.setVisible(true);
         });
     }
-<<<<<<< Updated upstream
-=======
 
     //PRODUCTS
     public DefaultTableModel getTableProduct(List<Product> productList) {
@@ -274,5 +247,4 @@ public class MainWindow extends JFrame {
 
         return model;
     }
->>>>>>> Stashed changes
 }
