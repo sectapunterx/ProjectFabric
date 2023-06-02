@@ -127,10 +127,8 @@ public class MainWindow extends JFrame {
             UpdateModelDialog dialog = new UpdateModelDialog(this);
             dialog.setVisible(true);
         });
-<<<<<<< Updated upstream
 
         //------------------------------ARRIVAL (SUPPLY)---------------------------------------
-=======
         GetModelButton = new JButton("Получить модель");
         GetModelButton.addActionListener(e -> {
             GetModelDialog dialog = new GetModelDialog(this);
@@ -139,7 +137,6 @@ public class MainWindow extends JFrame {
 
         //------------------------------ARRIVAL (SUPPLY)---------------------------------------
 
->>>>>>> Stashed changes
         allArrivalButton = new JButton("Получить все поставки");
         allArrivalButton.addActionListener(e -> {
             ArrivalDao arrivalDao = new ArrivalDao();
@@ -196,13 +193,8 @@ public class MainWindow extends JFrame {
         modelButtonPanel.add(addModelButton);
         modelButtonPanel.add(DeleteModelButton);
         modelButtonPanel.add(UpdateModelButton);
-<<<<<<< Updated upstream
-        //modelButtonPanel.add(GetModelButton);
-=======
         modelButtonPanel.add(GetModelButton);
-
->>>>>>> Stashed changes
-
+        modelButtonPanel.add(GetModelButton);
 
         JPanel supplyButtonPanel = new JPanel(new FlowLayout());
         supplyButtonPanel.add(allArrivalButton);
