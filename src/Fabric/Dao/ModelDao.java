@@ -73,9 +73,9 @@ public class ModelDao {
         ResultSet resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
-            String nameModel = resultSet.getString("name_model");
-            int codeProduct = resultSet.getInt("code_product");
-            double priceModel = resultSet.getDouble("price_model");
+            String nameModel = resultSet.getString("namemodel");
+            int codeProduct = resultSet.getInt("codeproduct");
+            double priceModel = resultSet.getDouble("pricemodel");
 
             return new Model(codeModel, nameModel, codeProduct, priceModel);
         }

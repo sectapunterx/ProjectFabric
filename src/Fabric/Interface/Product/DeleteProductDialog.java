@@ -21,6 +21,7 @@ public class DeleteProductDialog extends JDialog {
             try {
                 productDao.deleteProduct(productCode);
                 // TODO: Добавьте ваш код здесь для уведомления пользователя об успешном удалении
+                JOptionPane.showMessageDialog(this, "Товар удален", "Товар удален", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 // TODO: Добавьте ваш код здесь для обработки ошибки удаления
             }

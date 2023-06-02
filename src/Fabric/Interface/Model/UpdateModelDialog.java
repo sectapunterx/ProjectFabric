@@ -14,9 +14,13 @@ public class UpdateModelDialog extends JDialog {
 
     public UpdateModelDialog(JFrame parent) {
         super(parent, "Обновить модель", true);
-        // TODO: Добавьте ваш код здесь для инициализации текстовых полей
 
-        JButton okButton = new JButton("OK");
+        modelCodeField = new JTextField(20);
+        modelNameField = new JTextField(20);
+        productCodeField = new JTextField(20);
+        modelPriceField = new JTextField(20);
+
+        JButton okButton = new JButton("Обновить модель");
         okButton.addActionListener(e -> {
             int modelCode = Integer.parseInt(modelCodeField.getText());
             String modelName = modelNameField.getText();
@@ -26,15 +30,37 @@ public class UpdateModelDialog extends JDialog {
             Model model = new Model(modelCode, modelName, productCode, modelPrice);
             ModelDao modelDao = new ModelDao();
             try {
+                Model previousModel = modelDao.getModel(modelCode);
                 modelDao.updateModel(model);
-                // TODO: Добавьте ваш код здесь для уведомления пользователя об успешном обновлении
+                // Информирование пользователя об успешном обновлении
+                JOptionPane.showMessageDialog(this, "Model code: " + previousModel.getCodeModel() + " -> Model code: " + model.getCodeModel()
+                        + "\nModel name: " + previousModel.getNameModel() + " -> Model name: " + model.getNameModel()
+                        + "\nProduct code: " + previousModel.getCodeProduct() + " -> Product code: " + model.getCodeProduct()
+                        + "\nModel price: " + previousModel.getPriceModel() + " -> Model price: " + model.getPriceModel());
+
             } catch (SQLException ex) {
-                // TODO: Добавьте ваш код здесь для обработки ошибки обновления
+                // Обработка ошибки обновления
+                JOptionPane.showMessageDialog(this, "Ошибка обновления модели", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                //Вывести в чем именно ошибка
+                ex.printStackTrace();
             }
 
             dispose();
         });
 
-        // TODO: Добавьте ваш код здесь для создания и настройки макета диалогового окна
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        add(new JLabel("Код модели:"));
+        add(modelCodeField);
+        add(new JLabel("Наименование модели:"));
+        add(modelNameField);
+        add(new JLabel("Код товара:"));
+        add(productCodeField);
+        add(new JLabel("Цена модели:"));
+        add(modelPriceField);
+        add(okButton);
+
+        setSize(300, 200); // Задаём размер окна
+        setLocationRelativeTo(parent); // Располагаем окно по центру относительно родительского
+        pack();
     }
 }
