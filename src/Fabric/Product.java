@@ -48,4 +48,11 @@ public class Product {
         models.remove(model);
     }
 
+    @Override
+    public String toString() {
+        return "Product code: " + code + "\n" +
+                "Product name: " + name;
+    }
+
+
 }
