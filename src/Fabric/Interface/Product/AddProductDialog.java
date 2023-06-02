@@ -38,7 +38,7 @@ public class AddProductDialog extends JDialog {
             dispose();
         });
 
-        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
         add(new JLabel("Код товара:"));
         add(productCodeField);
         add(new JLabel("Наименование товара:"));
