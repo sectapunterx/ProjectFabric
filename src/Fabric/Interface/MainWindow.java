@@ -1,9 +1,10 @@
 package Fabric.Interface;
 
+import Fabric.Interface.Arrival.AddSupplyDialog;
+import Fabric.Interface.Model.AddModelDialog;
+import Fabric.Interface.Product.AddProductDialog;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
 
 public class MainWindow extends JFrame {
     private JButton addProductButton;

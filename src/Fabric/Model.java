@@ -9,6 +9,13 @@ public class Model {
     private double priceModel;
     private List<Arrival> arrivals;
 
+    public Model(int codeModel, String nameModel, int codeProduct, double priceModel) {
+        this.codeModel = codeModel;
+        this.nameModel = nameModel;
+        this.codeProduct = codeProduct;
+        this.priceModel = priceModel;
+    }
+
     public int getCodeModel() {
         return codeModel;
     }

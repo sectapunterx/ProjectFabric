@@ -1,6 +1,6 @@
-package Fabric.Interface;
+package Fabric.Interface.Product;
 
-import Fabric.Database.ProductDao;
+import Fabric.Dao.ProductDao;
 import Fabric.Product;
 
 import javax.swing.*;
@@ -21,15 +21,20 @@ public class AddProductDialog extends JDialog {
             String productCode = productCodeField.getText();
             String productName = productNameField.getText();
 
-            int productcodeint = Integer.parseInt(productCode);
+            int productCodeInt = Integer.parseInt(productCode);
 
-            Product product = new Product(productcodeint, productName);
+            Product product = new Product(productCodeInt, productName);
             ProductDao productDao = new ProductDao();
+
             try {
                 productDao.addProduct(product);
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                JOptionPane.showMessageDialog(this, "Товар успешно добавлен!\n" +
+                        "Product code: " + productCode + "\n" +
+                        "Product name: " + productName, "Успех", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Ошибка при добавлении товара: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
             }
+
             dispose();
         });
 

@@ -1,4 +1,7 @@
-package Fabric.Interface;
+package Fabric.Interface.Model;
+
+import Fabric.Dao.ModelDao;
+import Fabric.Model;
 
 import javax.swing.*;
 
@@ -23,12 +26,22 @@ public class AddModelDialog extends JDialog {
             String productCode = productCodeField.getText();
             String modelPrice = modelPriceField.getText();
 
-            System.out.println("------AddModelDialog------");
-            System.out.println("Model code: " + modelCode);
-            System.out.println("Model name: " + modelName);
-            System.out.println("Product code: " + productCode);
-            System.out.println("Model price: " + modelPrice);
+            int modelCodeInt = Integer.parseInt(modelCode);
+            int productCodeInt = Integer.parseInt(productCode);
+            double modelPriceDouble = Double.parseDouble(modelPrice);
 
+            Model model = new Model(modelCodeInt, modelName, productCodeInt, modelPriceDouble);
+            ModelDao modelDao = new ModelDao();
+            try {
+                modelDao.addModel(model);
+                JOptionPane.showMessageDialog(this, "Модель успешно добавлена!\n" +
+                        "Model code: " + modelCode + "\n" +
+                        "Model name: " + modelName + "\n" +
+                        "Product code: " + productCode + "\n" +
+                        "Model price: " + modelPrice, "Успех", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Ошибка при добавлении модели: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+            }
 
             dispose();
         });

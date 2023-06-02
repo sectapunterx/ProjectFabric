@@ -10,6 +10,14 @@ public class Arrival {
     private int quantityReceipt;
     private String acceptReceipt;
 
+    public Arrival(int codeReceipt, int codeModel, Date dateReceipt, int quantityReceipt, String acceptReceipt) {
+        this.codeReceipt = codeReceipt;
+        this.codeModel = codeModel;
+        this.dateReceipt = dateReceipt;
+        this.quantityReceipt = quantityReceipt;
+        this.acceptReceipt = acceptReceipt;
+    }
+
     public int getCodeReceipt() {
         return codeReceipt;
     }
