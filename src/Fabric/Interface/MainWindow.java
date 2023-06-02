@@ -14,6 +14,7 @@ import Fabric.Interface.Product.GetProductDialog;
 import Fabric.Interface.Product.UpdateProductDialog;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainWindow extends JFrame {
     private JButton addProductButton;
@@ -45,12 +46,6 @@ public class MainWindow extends JFrame {
             DeleteProductDialog dialog = new DeleteProductDialog(this);
             dialog.setVisible(true);
         });
-
-        /*DeleteArrivalButton = new JButton("Удалить товар");
-        DeleteArrivalButton.addActionListener(e -> {
-            DeleteProductDialog dialog = new DeleteProductDialog(this);
-            dialog.setVisible(true);
-        });
         UpdateProductButton = new JButton("Обновить товар");
         UpdateProductButton.addActionListener(e -> {
             UpdateProductDialog dialog = new UpdateProductDialog(this);
@@ -60,7 +55,7 @@ public class MainWindow extends JFrame {
         GetProductButton.addActionListener(e -> {
             GetProductDialog dialog = new GetProductDialog(this);
             dialog.setVisible(true);
-        });*/
+        });
 
         addModelButton = new JButton("Добавить модель");
         addModelButton.addActionListener(e -> {
@@ -74,23 +69,30 @@ public class MainWindow extends JFrame {
             dialog.setVisible(true);
         });
 
-        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(addProductButton);
-        add(DeleteProductButton);
-        add(addModelButton);
-        add(addSupplyButton);
-        //TODO:fix errors
-        //add(DeleteProductButton);
-        /*add(DeleteModelButton);
-        add(DeleteArrivalButton);
-        add(UpdateProductButton);
-        add(UpdateModelButton);
-        add(UpdateArrivalButton);
-        add(GetProductButton);
-        add(GetModelButton);
-        add(GetArrivalButton);*/
+        JPanel productButtonPanel = new JPanel(new FlowLayout());
+        productButtonPanel.add(addProductButton);
+        productButtonPanel.add(DeleteProductButton);
+        productButtonPanel.add(UpdateProductButton);
+        productButtonPanel.add(GetProductButton);
 
+        JPanel modelButtonPanel = new JPanel(new FlowLayout());
+        modelButtonPanel.add(addModelButton);
+        //modelButtonPanel.add(DeleteModelButton);
+        //modelButtonPanel.add(UpdateModelButton);
+        //modelButtonPanel.add(GetModelButton);
+
+        JPanel supplyButtonPanel = new JPanel(new FlowLayout());
+        supplyButtonPanel.add(addSupplyButton);
+        //supplyButtonPanel.add(DeleteArrivalButton);
+        //supplyButtonPanel.add(UpdateArrivalButton);
+        //supplyButtonPanel.add(GetArrivalButton);
+
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        add(productButtonPanel);
+        add(modelButtonPanel);
+        add(supplyButtonPanel);
     }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
