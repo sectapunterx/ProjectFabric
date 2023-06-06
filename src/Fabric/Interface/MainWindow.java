@@ -67,7 +67,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-                // TODO: Обработка ошибки работы с базой данных
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
             }
         });
 
@@ -110,7 +110,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
             }
         });
 
@@ -153,7 +153,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
             }
         });
 
