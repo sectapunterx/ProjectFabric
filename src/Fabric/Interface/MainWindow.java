@@ -47,6 +47,7 @@ public class MainWindow extends JFrame {
         setSize(500, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  // Располагаем окно по центру экрана
+        this.setResizable(false); // Запрещаем изменение размеров окна
 
         //------------------------------PRODUCT---------------------------------------
 
