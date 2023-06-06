@@ -91,4 +91,3 @@ public class ArrivalDao {
         return null;
     }
 }
-

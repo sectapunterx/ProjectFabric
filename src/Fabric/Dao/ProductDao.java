@@ -35,15 +35,15 @@ public class ProductDao {
     }
 
     public void addProduct(Product product) {
-    String query = "INSERT INTO products (code, name) VALUES (?, ?)";
-    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-        preparedStatement.setInt(1, product.getCode());
-        preparedStatement.setString(2, product.getName());
-        preparedStatement.executeUpdate();
-    } catch (SQLException ex) {
-        System.err.println("Error adding product: " + ex.getMessage());
+        String query = "INSERT INTO products (code, name) VALUES (?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, product.getCode());
+            preparedStatement.setString(2, product.getName());
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            System.err.println("Error adding product: " + ex.getMessage());
+        }
     }
-}
 
     public void updateProduct(Product product) throws SQLException {
         String query = "UPDATE products SET name = ? WHERE code = ?";
