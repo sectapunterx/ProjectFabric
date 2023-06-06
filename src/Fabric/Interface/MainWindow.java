@@ -59,6 +59,7 @@ public class MainWindow extends JFrame {
                 // Создаем модель таблицы и добавляем ее в JTable
                 DefaultTableModel model = getTableProduct(productList);
                 JTable table = new JTable(model);
+                table.setAutoCreateRowSorter(true); // Эта строка включает сортировку
 
                 // Создаем JScrollPane и добавляем в него JTable
                 JScrollPane scrollPane = new JScrollPane(table);
@@ -101,6 +102,7 @@ public class MainWindow extends JFrame {
                 // Создаем модель таблицы и добавляем ее в JTable
                 DefaultTableModel model = getTableModel(modelList);
                 JTable table = new JTable(model);
+                table.setAutoCreateRowSorter(true); // Эта строка включает сортировку
 
                 // Создаем JScrollPane и добавляем в него JTable
                 JScrollPane scrollPane = new JScrollPane(table);
@@ -127,10 +129,6 @@ public class MainWindow extends JFrame {
             UpdateModelDialog dialog = new UpdateModelDialog(this);
             dialog.setVisible(true);
         });
-<<<<<<< Updated upstream
-
-        //------------------------------ARRIVAL (SUPPLY)---------------------------------------
-=======
         GetModelButton = new JButton("Получить модель");
         GetModelButton.addActionListener(e -> {
             GetModelDialog dialog = new GetModelDialog(this);
@@ -138,8 +136,6 @@ public class MainWindow extends JFrame {
         });
 
         //------------------------------ARRIVAL (SUPPLY)---------------------------------------
-
->>>>>>> Stashed changes
         allArrivalButton = new JButton("Получить все поставки");
         allArrivalButton.addActionListener(e -> {
             ArrivalDao arrivalDao = new ArrivalDao();
@@ -149,6 +145,7 @@ public class MainWindow extends JFrame {
                 // Создаем модель таблицы и добавляем ее в JTable
                 DefaultTableModel model = getTableArrival(arrivalList);
                 JTable table = new JTable(model);
+                table.setAutoCreateRowSorter(true); // Эта строка включает сортировку
 
                 // Создаем JScrollPane и добавляем в него JTable
                 JScrollPane scrollPane = new JScrollPane(table);
@@ -196,12 +193,7 @@ public class MainWindow extends JFrame {
         modelButtonPanel.add(addModelButton);
         modelButtonPanel.add(DeleteModelButton);
         modelButtonPanel.add(UpdateModelButton);
-<<<<<<< Updated upstream
-        //modelButtonPanel.add(GetModelButton);
-=======
         modelButtonPanel.add(GetModelButton);
-
->>>>>>> Stashed changes
 
 
         JPanel supplyButtonPanel = new JPanel(new FlowLayout());
