@@ -3,25 +3,25 @@ package Fabric;
 import java.util.List;
 
 public class Model {
-    private int codeModel;
+    private int code;
     private String nameModel;
     private int codeProduct;
     private double priceModel;
     private List<Arrival> arrivals;
 
-    public Model(int codeModel, String nameModel, int codeProduct, double priceModel) {
-        this.codeModel = codeModel;
+    public Model(int code, String nameModel, int codeProduct, double priceModel) {
+        this.code = code;
         this.nameModel = nameModel;
         this.codeProduct = codeProduct;
         this.priceModel = priceModel;
     }
 
-    public int getCodeModel() {
-        return codeModel;
+    public int getCode() {
+        return code;
     }
 
-    public void setCodeModel(int codeModel) {
-        this.codeModel = codeModel;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getNameModel() {
@@ -66,7 +66,7 @@ public class Model {
 
     @Override
     public String toString() {
-        return "Model code: " + codeModel + "\n" +
+        return "Model code: " + code + "\n" +
                 "Model name: " + nameModel + "\n" +
                 "Product code: " + codeProduct + "\n" +
                 "Price: " + priceModel;

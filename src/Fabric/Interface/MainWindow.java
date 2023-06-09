@@ -4,6 +4,7 @@ import Fabric.Arrival;
 import Fabric.Dao.ArrivalDao;
 import Fabric.Dao.ModelDao;
 import Fabric.Dao.ProductDao;
+import Fabric.Database.DatabaseConnection;
 import Fabric.Interface.Arrival.AddSupplyDialog;
 import Fabric.Interface.Arrival.DeleteArrivalDialog;
 import Fabric.Interface.Arrival.GetArrivalDialog;
@@ -47,6 +48,7 @@ public class MainWindow extends JFrame {
         setSize(500, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  // Располагаем окно по центру экрана
+        this.setResizable(false); // Запрещаем изменение размеров окна
 
         //------------------------------PRODUCT---------------------------------------
 
@@ -67,7 +69,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных\n" + ex.getMessage());
             }
         });
 
@@ -110,7 +112,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных\n" + ex.getMessage());
             }
         });
 
@@ -153,7 +155,7 @@ public class MainWindow extends JFrame {
                 // Отображаем JScrollPane в диалоговом окне
                 JOptionPane.showMessageDialog(this, scrollPane);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных");
+                JOptionPane.showMessageDialog(this, "Ошибка при работе с базой данных\n" + ex.getMessage());
             }
         });
 
@@ -243,7 +245,7 @@ public class MainWindow extends JFrame {
 
         for (Model models : modelList) {
             Object[] o = new Object[4];
-            o[0] = models.getCodeModel();
+            o[0] = models.getCode();
             o[1] = models.getNameModel();
             o[2] = models.getCodeProduct();
             o[3] = models.getPriceModel();
@@ -262,7 +264,7 @@ public class MainWindow extends JFrame {
 
         for (Arrival arrival : arrivalList) {
             Object[] o = new Object[5];
-            o[0] = arrival.getCodeReceipt();
+            o[0] = arrival.getCode();
             o[1] = arrival.getCodeModel();
             o[2] = arrival.getDateReceipt();
             o[3] = arrival.getQuantityReceipt();

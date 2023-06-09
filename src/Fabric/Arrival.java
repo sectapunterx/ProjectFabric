@@ -4,26 +4,26 @@ import java.util.Date;
 
 public class Arrival {
 
-    private int codeReceipt;
+    private int code;
     private int codeModel;
     private Date dateReceipt;
     private int quantityReceipt;
     private String acceptReceipt;
 
-    public Arrival(int codeReceipt, int codeModel, Date dateReceipt, int quantityReceipt, String acceptReceipt) {
-        this.codeReceipt = codeReceipt;
+    public Arrival(int code, int codeModel, Date dateReceipt, int quantityReceipt, String acceptReceipt) {
+        this.code = code;
         this.codeModel = codeModel;
         this.dateReceipt = dateReceipt;
         this.quantityReceipt = quantityReceipt;
         this.acceptReceipt = acceptReceipt;
     }
 
-    public int getCodeReceipt() {
-        return codeReceipt;
+    public int getCode() {
+        return code;
     }
 
-    public void setCodeReceipt(int codeReceipt) {
-        this.codeReceipt = codeReceipt;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public int getCodeModel() {
