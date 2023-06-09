@@ -34,7 +34,7 @@ public class ArrivalDao {
     public void addArrival(Arrival arrival) {
         String query = "INSERT INTO arrivals (codereceipt, codemodel, datereceipt, quantityreceipt, acceptreceipt) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, arrival.getCodeReceipt());
+            preparedStatement.setInt(1, arrival.getCode());
             preparedStatement.setInt(2, arrival.getCodeModel());
             java.sql.Date sqlDate = new java.sql.Date(arrival.getDateReceipt().getTime());
             preparedStatement.setDate(3, sqlDate);
@@ -58,7 +58,7 @@ public class ArrivalDao {
 
         preparedStatement.setInt(3, arrival.getQuantityReceipt());
         preparedStatement.setString(4, arrival.getAcceptReceipt());
-        preparedStatement.setInt(5, arrival.getCodeReceipt());
+        preparedStatement.setInt(5, arrival.getCode());
 
         preparedStatement.executeUpdate();
     }

@@ -33,7 +33,7 @@ public class UpdateModelDialog extends JDialog {
                 Model previousModel = modelDao.getModel(modelCode);
                 modelDao.updateModel(model);
                 // Информирование пользователя об успешном обновлении
-                JOptionPane.showMessageDialog(this, "Model code: " + previousModel.getCodeModel() + " -> Model code: " + model.getCodeModel()
+                JOptionPane.showMessageDialog(this, "Model code: " + previousModel.getCode() + " -> Model code: " + model.getCode()
                         + "\nModel name: " + previousModel.getNameModel() + " -> Model name: " + model.getNameModel()
                         + "\nProduct code: " + previousModel.getCodeProduct() + " -> Product code: " + model.getCodeProduct()
                         + "\nModel price: " + previousModel.getPriceModel() + " -> Model price: " + model.getPriceModel());

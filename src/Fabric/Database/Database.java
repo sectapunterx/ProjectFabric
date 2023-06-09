@@ -43,7 +43,7 @@ public class Database {
     }
     public Arrival getArrival(int codeReceipt) {
         for (Arrival arrival : arrivals) {
-            if (arrival.getCodeReceipt() == codeReceipt) {
+            if (arrival.getCode() == codeReceipt) {
                 return arrival;
             }
         }
@@ -59,7 +59,7 @@ public class Database {
     }
     public Model getModel(int codeModel) {
         for (Model model : models) {
-            if (model.getCodeModel() == codeModel) {
+            if (model.getCode() == codeModel) {
                 return model;
             }
         }
