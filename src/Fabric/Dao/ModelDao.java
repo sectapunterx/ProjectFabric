@@ -34,7 +34,7 @@ public class ModelDao {
     public void addModel(Model model) {
         String query = "INSERT INTO models (codemodel, namemodel, codeproduct, pricemodel) VALUES (?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, model.getCodeModel());
+            preparedStatement.setInt(1, model.getCode());
             preparedStatement.setString(2, model.getNameModel());
             preparedStatement.setInt(3, model.getCodeProduct());
             preparedStatement.setDouble(4, model.getPriceModel());
@@ -51,7 +51,7 @@ public class ModelDao {
         preparedStatement.setString(1, model.getNameModel());
         preparedStatement.setInt(2, model.getCodeProduct());
         preparedStatement.setDouble(3, model.getPriceModel());
-        preparedStatement.setInt(4, model.getCodeModel());
+        preparedStatement.setInt(4, model.getCode());
 
         preparedStatement.executeUpdate();
     }
