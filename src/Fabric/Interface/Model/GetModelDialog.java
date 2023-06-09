@@ -35,7 +35,6 @@ public class GetModelDialog extends JDialog{
 
         setSize(300, 200);
         setLocationRelativeTo(parent);
-        this.setResizable(false); // Запрещаем изменение размеров окна
         pack();
     }
 }

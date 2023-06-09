@@ -39,7 +39,6 @@ public class DeleteProductDialog extends JDialog {
 
         setSize(300, 200); // Задаём размер окна
         setLocationRelativeTo(parent); // Располагаем окно по центру относительно родительского
-        this.setResizable(false); // Запрещаем изменение размеров окна
         pack();
     }
 }
