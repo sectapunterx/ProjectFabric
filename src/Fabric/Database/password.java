@@ -2,5 +2,5 @@ package Fabric.Database;
 
 public class password {
 
-    public String pass = "your_password_here";
+    public String pass = "A5s25m3v8";
 }

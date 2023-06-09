@@ -37,7 +37,7 @@ public class UpdateArrivalDialog extends JDialog {
             ArrivalDao arrivalDao = new ArrivalDao();
             try {
                 arrivalDao.updateArrival(arrival);
-                JOptionPane.showMessageDialog(this, "Arrival code: " + arrivalCode + " -> Arrival code: " + arrival.getCodeReceipt()
+                JOptionPane.showMessageDialog(this, "Arrival code: " + arrivalCode + " -> Arrival code: " + arrival.getCode()
                         + "\nModel code: " + modelCode + " -> Model code: " + arrival.getCodeModel()
                         + "\nArrival date: " + arrivalDate + " -> Arrival date: " + arrival.getDateReceipt()
                         + "\nQuantity receipt: " + quantityReceipt + " -> Quantity receipt: " + arrival.getQuantityReceipt()
